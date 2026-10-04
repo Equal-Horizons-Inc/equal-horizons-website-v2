@@ -17,12 +17,11 @@ export default function Navbar() {
         <nav className="site-nav__links" aria-label="Main navigation">
           <Link href="/about">About us</Link>
           <Link href="/#work">Our work</Link>
-          <Link href="/#work">Projects</Link>
           <Link href="/#journal">Journal</Link>
         </nav>
-        <a className="btn" href="#connect">
+        <Link className="btn" href="/#connect">
           Get involved
-        </a>
+        </Link>
       </div>
     </header>
   );

@@ -1,46 +1,15 @@
 import Hero from "./Hero";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpenText,
-  EnvelopeSimple,
-  GithubLogo,
-  HeartStraight,
-  RocketLaunch,
 } from "@phosphor-icons/react/ssr";
 
-const projects = [
-  {
-    number: "01",
-    title: "Tools that welcome everyone",
-    description:
-      "Open source foundations designed with clarity, accessibility, and the next contributor in mind.",
-    tone: "violet",
-    icon: RocketLaunch,
-  },
-  {
-    number: "02",
-    title: "Knowledge in the open",
-    description:
-      "Practical guides and learning paths that turn curiosity into confidence for developers everywhere.",
-    tone: "green",
-    icon: BookOpenText,
-  },
-  {
-    number: "03",
-    title: "A healthier commons",
-    description:
-      "Stewardship, maintenance, and support for the projects people rely on every day.",
-    tone: "yellow",
-    icon: HeartStraight,
-  },
-];
+import { projects } from "./projects/data";
 
 export default function Home() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <main>
       <Navbar />
@@ -87,9 +56,9 @@ export default function Home() {
                 <span className="project-label">Open invitation</span>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <a href="#connect" aria-label={`Learn more about ${project.title}`}>
+                <Link href={`/projects/${project.slug}`} aria-label={`Learn more about ${project.title}`}>
                   Learn more <ArrowRight aria-hidden="true" weight="bold" />
-                </a>
+                </Link>
                 </article>
               );
             })}
@@ -111,31 +80,23 @@ export default function Home() {
 
       <section className="connect" id="connect">
         <div className="shell connect-inner">
-          <h2>There is room<br />for your <em>idea.</em></h2>
-          <p>Follow along, contribute to a project, or simply say hello. The door is open.</p>
-          <a className="button button-light" href="mailto:equalhorizonsinc@gmail.com">
-            Start a conversation <ArrowUpRight aria-hidden="true" weight="bold" />
-          </a>
+          <div className="connect-grid">
+            <div className="connect-message">
+              <h2>There is room<br />for your <em>idea.</em></h2>
+            </div>
+            <div className="connect-card">
+              <span className="connect-card__index">✳ 04 / Connect</span>
+              <p>Follow along, contribute to a project, or simply say hello. Bring a question, a sketch, or a small beginning.</p>
+              <a className="button button-light" href="mailto:equalhorizonsinc@gmail.com">
+                Start a conversation <ArrowUpRight aria-hidden="true" weight="bold" />
+              </a>
+              <span className="connect-card__note">Everyone is welcome here.</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <footer className="footer shell" id="journal">
-        <div className="footer-brand-group">
-          <a className="footer-brand" href="#top">
-            <span>Equal<br /><b>Horizons</b></span>
-          </a>
-          <span className="copyright">© {currentYear} Equal Horizons</span>
-        </div>
-        <p>A 501(c)(3) nonprofit for a more open future.</p>
-        <div className="footer-links">
-          <a href="https://github.com/Equal-Horizons-Inc" target="_blank" rel="noreferrer">
-            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
-          </a>
-          <a href="mailto:equalhorizonsinc@gmail.com">
-            <EnvelopeSimple aria-hidden="true" weight="bold" /> Contact
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
