@@ -282,6 +282,8 @@ body { font-family: var(--font-text), "Avenir Next", system-ui, sans-serif; }
   border-bottom: 3px solid transparent;
 }
 .site-nav__links a:hover { border-bottom-color: var(--ink); }
+.site-nav__mobile-cta,
+.site-nav__menu-toggle { display: none; }
 
 .btn {
   --btn-shadow: var(--ink);
@@ -391,9 +393,66 @@ body { font-family: var(--font-text), "Avenir Next", system-ui, sans-serif; }
 @media (max-width: 760px) {
   .site-nav__inner { height: 64px; }
   .site-nav__inner { gap: 12px; }
-  .site-nav__brand { flex-basis: min(165px, 48vw); }
-  .site-nav__links { display: none; }
-  .site-nav .btn { padding: 10px 14px; font-size: 13px; }
+  .site-nav__brand { flex: 1 1 auto; min-width: 0; }
+  .site-nav__brand img { max-width: 165px; }
+  .site-nav__cta { display: none; }
+  .site-nav__menu-toggle {
+    display: flex;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    padding: 10px 8px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--ink);
+    background: var(--glow);
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    cursor: pointer;
+  }
+  .site-nav__menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    transition: transform var(--motion-duration) var(--motion-ease), opacity var(--motion-duration) var(--motion-ease);
+  }
+  .site-nav__menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .site-nav__menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .site-nav__menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .site-nav__links {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 10px 20px 20px;
+    background: var(--cream);
+    border: 3px solid var(--ink);
+    border-top: 0;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .site-nav__links.is-open { display: flex; }
+  .site-nav__links a {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(19,35,59,.2);
+    font-size: 16px;
+  }
+  .site-nav__links .site-nav__mobile-cta {
+    display: block;
+    margin-top: 10px;
+    padding: 13px 16px;
+    color: var(--ink);
+    background: var(--glow);
+    border: 3px solid var(--ink);
+    text-align: center;
+    font-weight: 700;
+  }
   .horizon-copy p { font-size: 16px; }
 }
 
@@ -698,6 +757,10 @@ body { font-family: var(--font-text), "Avenir Next", system-ui, sans-serif; }
 }
 
 @media (max-width: 760px) {
+  .intro-grid,
+  .impact {
+    grid-template-columns: 1fr;
+  }
   .intro-grid { gap: 45px; }
   .section-heading h2 { font-size: 54px; }
   .project-card:nth-child(2) { margin-top: 0; }
@@ -705,6 +768,10 @@ body { font-family: var(--font-text), "Avenir Next", system-ui, sans-serif; }
   .connect-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+  .stats {
+    width: 100%;
+    transform: none;
   }
   .connect-card { padding: 24px; }
   .project-hero { padding: 48px 0 64px; }

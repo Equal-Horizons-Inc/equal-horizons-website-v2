@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className="site-nav">
       <div className="shell site-nav__inner">
@@ -14,14 +21,33 @@ export default function Navbar() {
             priority
           />
         </Link>
-        <nav className="site-nav__links" aria-label="Main navigation">
-          <Link href="/about">About us</Link>
-          <Link href="/#work">Our work</Link>
-          <Link href="/#journal">Journal</Link>
+        <nav
+          id="mobile-navigation"
+          className={`site-nav__links${menuOpen ? " is-open" : ""}`}
+          aria-label="Main navigation"
+        >
+          <Link href="/about" onClick={closeMenu}>About us</Link>
+          <Link href="/#work" onClick={closeMenu}>Our work</Link>
+          <Link href="/#journal" onClick={closeMenu}>Journal</Link>
+          <Link className="site-nav__mobile-cta" href="/#connect" onClick={closeMenu}>
+            Get involved
+          </Link>
         </nav>
-        <Link className="btn" href="/#connect">
+        <Link className="btn site-nav__cta" href="/#connect">
           Get involved
         </Link>
+        <button
+          className="site-nav__menu-toggle"
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
     </header>
   );
