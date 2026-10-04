@@ -84,6 +84,7 @@ export default function Home() {
                     <ProjectIcon weight="bold" />
                   </span>
                 </div>
+                <span className="project-label">Open invitation</span>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
                 <a href="#connect" aria-label={`Learn more about ${project.title}`}>

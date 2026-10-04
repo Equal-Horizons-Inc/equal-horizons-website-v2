@@ -27,6 +27,7 @@ export default function Hero() {
 
       <div className="shell">
         <div className="horizon-copy">
+          <p className="horizon-eyebrow"><span>✳</span> An open source nonprofit</p>
           <h1>
             Better code.
             <br />
