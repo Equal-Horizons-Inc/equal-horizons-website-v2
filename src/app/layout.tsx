@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${pixel.variable} ${text.variable}`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${pixel.variable} ${text.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
