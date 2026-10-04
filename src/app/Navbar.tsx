@@ -27,13 +27,12 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
           <Link href="/about" onClick={closeMenu}>About us</Link>
-          <Link href="/#work" onClick={closeMenu}>Our work</Link>
-          <Link href="/#journal" onClick={closeMenu}>Journal</Link>
-          <Link className="site-nav__mobile-cta" href="/#connect" onClick={closeMenu}>
+          <Link href="/projects" onClick={closeMenu}>Our work</Link>
+          <Link className="site-nav__mobile-cta" href="/get-involved" onClick={closeMenu}>
             Get involved
           </Link>
         </nav>
-        <Link className="btn site-nav__cta" href="/#connect">
+        <Link className="btn site-nav__cta" href="/get-involved">
           Get involved
         </Link>
         <button

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "../../Footer";
 import Navbar from "../../Navbar";
+import ContactBanner from "../../ContactBanner";
 import { getProject, projects } from "../data";
 
 export function generateStaticParams() {
@@ -37,8 +38,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <Navbar />
       <section className={`project-hero project-hero--${project.tone}`}>
         <div className="shell">
-          <Link className="project-back" href="/#work">
-            <ArrowLeft aria-hidden="true" weight="bold" /> Back to our work
+          <Link className="project-back" href="/">
+            <ArrowLeft aria-hidden="true" weight="bold" /> Back home
           </Link>
           <div className="project-hero__top">
             <span className="project-hero__number">{project.number} / 03</span>
@@ -65,14 +66,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="project-invite">
-        <div className="shell project-invite__inner">
-          <p>Have an idea that belongs here?</p>
-          <Link className="arrow-link" href="/#connect">
-            Start a conversation <ArrowUpRight aria-hidden="true" weight="bold" />
-          </Link>
-        </div>
-      </section>
+      <ContactBanner />
       <Footer />
     </main>
   );

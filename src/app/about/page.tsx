@@ -1,9 +1,7 @@
-import {
-  ArrowRight,
-  ArrowUpRight,
-} from "@phosphor-icons/react/ssr";
+import { ArrowUpRight } from "@phosphor-icons/react/ssr";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
+import ContactBanner from "../ContactBanner";
 
 const founders = [
   {
@@ -74,14 +72,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-contact" id="connect">
-        <div className="shell about-contact__inner">
-          <h2>Have a thoughtful idea?</h2>
-          <a className="button button-light" href="mailto:equalhorizonsinc@gmail.com">
-            Start a conversation <ArrowRight aria-hidden="true" weight="bold" />
-          </a>
-        </div>
-      </section>
+      <ContactBanner />
 
       <Footer />
     </main>

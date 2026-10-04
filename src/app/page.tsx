@@ -4,10 +4,10 @@ import Footer from "./Footer";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
 } from "@phosphor-icons/react/ssr";
 
 import { projects } from "./projects/data";
+import ContactBanner from "./ContactBanner";
 
 export default function Home() {
   return (
@@ -41,6 +41,9 @@ export default function Home() {
               <h2>Build in the open.<br /><span>Leave a trail.</span></h2>
             </div>
             <p>Our work is practical, generous, and made to be picked up by anyone.</p>
+            <Link className="arrow-link" href="/projects">
+              See our projects <ArrowRight aria-hidden="true" weight="bold" />
+            </Link>
           </div>
           <div className="project-grid">
             {projects.map((project) => {
@@ -78,23 +81,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="connect" id="connect">
-        <div className="shell connect-inner">
-          <div className="connect-grid">
-            <div className="connect-message">
-              <h2>There is room<br />for your <em>idea.</em></h2>
-            </div>
-            <div className="connect-card">
-              <span className="connect-card__index">✳ 04 / Connect</span>
-              <p>Follow along, contribute to a project, or simply say hello. Bring a question, a sketch, or a small beginning.</p>
-              <a className="button button-light" href="mailto:equalhorizonsinc@gmail.com">
-                Start a conversation <ArrowUpRight aria-hidden="true" weight="bold" />
-              </a>
-              <span className="connect-card__note">Everyone is welcome here.</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactBanner />
 
       <Footer />
     </main>
