@@ -1,0 +1,109 @@
+import {
+  ArrowRight,
+  ArrowUpRight,
+  EnvelopeSimple,
+  GithubLogo,
+} from "@phosphor-icons/react/ssr";
+import Link from "next/link";
+import Navbar from "../Navbar";
+
+const founders = [
+  {
+    initials: "MB",
+    name: "Mithilessh Saai Bhasker",
+    role: "Co-Founder",
+    focus: "Research and product thinking",
+    github: "https://github.com/Mithilessh2010",
+  },
+  {
+    initials: "SS",
+    name: "Sahil Singla",
+    role: "Co-Founder",
+    focus: "Partnerships and responsible growth",
+    github: "https://github.com/li231sd",
+  },
+];
+
+export const metadata = {
+  title: "About — Equal Horizons",
+  description:
+    "Learn about Equal Horizons and meet its co-founders, Mithilessh Saai Bhasker and Sahil Singla.",
+};
+
+export default function AboutPage() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <main>
+      <Navbar />
+
+      <section className="about-hero section shell">
+        <div className="about-hero__content">
+          <h1>Open source with <em>room to grow.</em></h1>
+          <p>
+            Equal Horizons is a California 501(c)(3) nonprofit building and
+            supporting open-source software that widens access to knowledge,
+            learning, and accessibility.
+          </p>
+        </div>
+      </section>
+
+      <section className="about-founders section shell">
+        <div className="about-section-heading">
+          <p className="about-kicker">The people behind the work</p>
+          <h2>Meet Equal Horizons.</h2>
+        </div>
+        <div className="founder-grid">
+          {founders.map((founder) => (
+            <article className="founder-card" key={founder.initials}>
+              <div className="founder-card__top">
+                <span className="founder-initials">{founder.initials}</span>
+                <a
+                  className="founder-link"
+                  href={founder.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${founder.name} on GitHub`}
+                >
+                  <ArrowUpRight aria-hidden="true" weight="bold" />
+                </a>
+              </div>
+              <h3>{founder.name}</h3>
+              <p>
+                {founder.role} <span aria-hidden="true">·</span>{" "}
+                {founder.focus}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="about-contact" id="connect">
+        <div className="shell about-contact__inner">
+          <h2>Have a thoughtful idea?</h2>
+          <a className="button button-light" href="mailto:equalhorizonsinc@gmail.com">
+            Start a conversation <ArrowRight aria-hidden="true" weight="bold" />
+          </a>
+        </div>
+      </section>
+
+      <footer className="footer shell">
+        <div className="footer-brand-group">
+          <Link className="footer-brand" href="/">
+            <span>equal<br /><b>horizons</b></span>
+          </Link>
+          <span className="copyright">© {currentYear} Equal Horizons</span>
+        </div>
+        <p>A 501(c)(3) nonprofit for a more open future.</p>
+        <div className="footer-links">
+          <a href="https://github.com/Equal-Horizons-Inc" target="_blank" rel="noreferrer">
+            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
+          <a href="mailto:equalhorizonsinc@gmail.com">
+            <EnvelopeSimple aria-hidden="true" weight="bold" /> Contact
+          </a>
+        </div>
+      </footer>
+    </main>
+  );
+}
