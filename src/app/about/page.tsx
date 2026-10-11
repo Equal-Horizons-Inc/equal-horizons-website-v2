@@ -41,8 +41,8 @@ export default function AboutPage() {
           <h1>Open source with <em>room to grow.</em></h1>
           <p>
             Equal Horizons is a California 501(c)(3) nonprofit building and
-            supporting open-source software that widens access to knowledge,
-            learning, and accessibility.
+            supporting high-quality, open-source products that solve real
+            problems and create room for more people to build.
           </p>
         </div>
       </section>

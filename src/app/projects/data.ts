@@ -24,12 +24,12 @@ export const projects: Project[] = [
     title: "Tools that welcome everyone",
     shortTitle: "Tools",
     description:
-      "Open source foundations designed with clarity, accessibility, and the next contributor in mind.",
+      "High-quality open-source products designed with clarity and the next contributor in mind.",
     details:
-      "We make the first step into a codebase feel possible. Our tools prioritize thoughtful defaults, plain-language documentation, and accessible interfaces so more people can build, learn, and contribute with confidence.",
+      "We make products that are useful from the first interaction and dependable over time. Our tools prioritize thoughtful defaults, clear documentation, and a welcoming path for people who want to build, learn, and contribute.",
     tone: "violet",
     icon: RocketLaunch,
-    focus: ["Accessible by default", "Clear documentation", "Friendly contribution paths"],
+    focus: ["Thoughtful product design", "Clear documentation", "Friendly contribution paths"],
   },
   {
     slug: "knowledge",

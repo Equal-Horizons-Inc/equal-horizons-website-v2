@@ -9,7 +9,7 @@ const waysToHelp = [
   {
     icon: Code,
     title: "Build with us",
-    text: "Contribute code, improve documentation, test an idea, or help make an interface more accessible.",
+    text: "Contribute code, improve documentation, test an idea, or help make a product better.",
   },
   {
     icon: Megaphone,

@@ -34,9 +34,9 @@ export default function Hero() {
             <span>Broader horizons.</span>
           </h1>
           <p>
-            Equal Horizons is a California 501(c)(3) building open-source
-            software that widens public access to knowledge, learning, and
-            accessibility.
+            Equal Horizons is a California 501(c)(3) building high-quality,
+            open-source products that are useful, thoughtful, and built to
+            last.
           </p>
           <div className="horizon-actions">
             <a className="btn" href="#work">
