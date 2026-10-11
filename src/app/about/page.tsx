@@ -1,7 +1,9 @@
 import { ArrowUpRight } from "@phosphor-icons/react/ssr";
+import type { Metadata } from "next";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import ContactBanner from "../ContactBanner";
+import { SITE_URL } from "../site-config";
 
 const founders = [
   {
@@ -20,10 +22,13 @@ const founders = [
   },
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About — Equal Horizons",
   description:
     "Learn about Equal Horizons and meet its co-founders, Mithilessh Saai Bhasker and Sahil Singla.",
+  alternates: {
+    canonical: `${SITE_URL}/about`,
+  },
 };
 
 export default function AboutPage() {

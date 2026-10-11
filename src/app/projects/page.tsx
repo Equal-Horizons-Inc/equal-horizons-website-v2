@@ -1,7 +1,9 @@
 import { ArrowUpRight, BookOpenText, GithubLogo, Newspaper } from "@phosphor-icons/react/ssr";
+import type { Metadata } from "next";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import ContactBanner from "../ContactBanner";
+import { SITE_URL } from "../site-config";
 
 const featuredProjects = [
   {
@@ -29,10 +31,13 @@ const featuredProjects = [
   },
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Projects — Equal Horizons",
   description:
-    "Explore Daily Thesis and Newzy, two open projects from Equal Horizons.",
+    "Explore the open-source tools, knowledge, and commons projects built by Equal Horizons.",
+  alternates: {
+    canonical: `${SITE_URL}/projects`,
+  },
 };
 
 export default function ProjectsPage() {

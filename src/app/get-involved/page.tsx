@@ -1,7 +1,9 @@
 import { ArrowUpRight, Code, HeartStraight, Megaphone } from "@phosphor-icons/react/ssr";
+import type { Metadata } from "next";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import ContactBanner from "../ContactBanner";
+import { SITE_URL } from "../site-config";
 
 const waysToHelp = [
   {
@@ -21,10 +23,13 @@ const waysToHelp = [
   },
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Get involved — Equal Horizons",
   description:
     "Find ways to contribute to Equal Horizons and help build a more open future.",
+  alternates: {
+    canonical: `${SITE_URL}/get-involved`,
+  },
 };
 
 export default function GetInvolvedPage() {

@@ -2,18 +2,20 @@ import {
   ArrowLeft,
   ArrowUpRight,
 } from "@phosphor-icons/react/ssr";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "../../Footer";
 import Navbar from "../../Navbar";
 import ContactBanner from "../../ContactBanner";
 import { getProject, projects } from "../data";
+import { SITE_URL } from "../../site-config";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
 
@@ -21,7 +23,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ? {
         title: `${project.shortTitle} — Equal Horizons`,
         description: project.description,
-      }
+      alternates: {
+        canonical: `${SITE_URL}/projects/${project.slug}`,
+      },
+    }
     : {};
 }
 
